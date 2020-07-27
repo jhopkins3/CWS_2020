@@ -49,7 +49,7 @@ Rerun the analysis a couple of times do the estimates from `z` change or stay th
 
 ## Calculating z-scores, and p-values 
 
-The example in class on a sample of 80 baby weights in the United States found a mean of $\bar{x}=3370$ with variance of  $\sigma=573$. Calculate the 95% confidence interval for this estimate.
+The example in class on a sample of 80 baby weights in the United States found a mean of $\bar{x}=3370$ with standard deviation of  $\sigma=573$. Calculate the 95% confidence interval for this estimate.
 
 ```{r}
 #code here
@@ -57,6 +57,8 @@ se <- 573/sqrt(80)
 xbar <- 3370
 
 xbar + 1.96*c(-1,1)*se
+# or
+xbar + qnorm(0.025)*se
 ```
 
 In this example the population mean was $\mu=3339$.  Repeat the z-test conducted in class but let the sample size be 160 instead of 80. Does this change the p-value? What if the sample size had been 8000 instead of 80? Would your conclusions about whether this sampled population is the same as the general population change?
