@@ -126,10 +126,10 @@ ggplot(data=Tdat, aes(x=T, y=Density)) +
 
 ### $\mu$ is the mean
 
-### $\sigma$ is the standard deviation
+### $\sigma$ is the standard deviation & $\sigma^2$ is the variance
 
 ---
-# The mean and standard deviation
+# The mean and variance
 
 The sample mean $(\bar{x})$ is the estimate of the population mean $(\mu)$. 
 
@@ -138,7 +138,7 @@ $$\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i$$
 
  The sample variance ( $s^2$) is the estimate of the population variance ( $\sigma^2$). 
 
-$$s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( x_i - \mu \right)^2$$
+$$s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( x_i - \bar{x} \right)^2$$
 In R use the `mean` and `var` functions:
 ```{r}
 mean(x)
@@ -220,7 +220,7 @@ ggplot() +
 ---
 # Inference with known $\sigma$
 
-We and estimate the mean horn length of a unicorn, $\bar{x}$. The standard error determines how much uncertainy is in $\bar{x}$. How confident can we be that the population horn average (i.e., the true value) is close to our estimate?
+We can estimate the mean horn length of a unicorn, $\bar{x}$. The standard error determines how much uncertainy is in $\bar{x}$. How confident can we be that the population horn average (i.e., the true value) is close to our estimate?
 
 A confidence interval gives a range of values that will contain the true value some specified proportion of the time. 
 
