@@ -408,7 +408,7 @@ knitr::include_graphics("https://www.homestratosphere.com/wp-content/uploads/201
 knitr::include_graphics("http://www.economics.soton.ac.uk/staff/aldrich/fisherguide/Doc1_files/image001.gif")
 ```
 
-.footnote[http://www.economics.soton.ac.uk/staff/aldrich/fisherguide]
+.footnote[http://www.economics.soton.ac.uk/staff/aldrich/fisherguide/rafframe.htm]
 ---
 
 # Example: Cuckoos
@@ -542,13 +542,15 @@ class: inverse, middle
 Post (aka post-hoc) tests look at pairwise comparisons and attempt to control for the fact that you are making **lots of comparisons**. 
 
 The Tukey-test uses the t-statistic (mean/SE) but the p-value controls for the fact that you are making comparisons. It controls for 5% false positives for all tests, instead of per-test.
-```{r, echo=F}
-
-```
 
 ```{r echo=F, fig.align="right"}
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/en/e/e9/John_Tukey.jpg")
 ```
+.footnote[
+image: https://en.wikipedia.org/wiki/John_Tukey
+
+good wikipedia article: https://en.wikipedia.org/wiki/Tukey%27s_range_test
+]
 
 ---
 # Applying Tukey's test
@@ -556,11 +558,6 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/en/e/e9/John_Tuk
 ```{r}
 TukeyHSD(aov(egg_length ~ host_species, cuckoo.dat))
 ```
-.footnote[
-image: https://en.wikipedia.org/wiki/John_Tukey
-
-good wikipedia article: https://en.wikipedia.org/wiki/Tukey%27s_range_test
-]
 
 ---
 # A word about anova
