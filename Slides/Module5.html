@@ -184,6 +184,11 @@ y &amp;= \beta_0 + \beta_1 x + \varepsilon \\
 $$
 
 
+
+```
+## `geom_smooth()` using formula 'y ~ x'
+```
+
 &lt;img src="Module5_files/figure-html/unnamed-chunk-7-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 Fitting works by trying to minimize `\(\sigma^2\)`.
@@ -411,7 +416,7 @@ summary(monet.mod)
 ]
 
 .pull-right[
-&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Claude_Monet_-_Champ_de_bl%C3%A9.jpg/1119px-Claude_Monet_-_Champ_de_bl%C3%A9.jpg" width="85%" style="display: block; margin: auto 0 auto auto;" /&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Claude_Monet_-_Champ_de_bl%C3%A9.jpg/1119px-Claude_Monet_-_Champ_de_bl%C3%A9.jpg" width="75%" style="display: block; margin: auto 0 auto auto;" /&gt;
 ]
 ---
 # Interpreting the output
@@ -504,7 +509,7 @@ The t-test compares the mean between two groups
 
 &lt;img src="http://www.economics.soton.ac.uk/staff/aldrich/fisherguide/Doc1_files/image001.gif" width="40%" /&gt;
 
-.footnote[http://www.economics.soton.ac.uk/staff/aldrich/fisherguide]
+.footnote[http://www.economics.soton.ac.uk/staff/aldrich/fisherguide/rafframe.htm]
 ---
 
 # Example: Cuckoos
@@ -625,14 +630,12 @@ Post (aka post-hoc) tests look at pairwise comparisons and attempt to control fo
 
 The Tukey-test uses the t-statistic (mean/SE) but the p-value controls for the fact that you are making comparisons. It controls for 5% false positives for all tests, instead of per-test.
 
+&lt;img src="https://upload.wikimedia.org/wikipedia/en/e/e9/John_Tukey.jpg" width="30%" style="display: block; margin: auto 0 auto auto;" /&gt;
 
 
-```r
-knitr::include_graphics("https://upload.wikimedia.org/wikipedia/en/e/e9/John_Tukey.jpg")
-```
+.footnote[image: https://en.wikipedia.org/wiki/John_Tukey
 
-&lt;img src="https://upload.wikimedia.org/wikipedia/en/e/e9/John_Tukey.jpg" style="display: block; margin: auto 0 auto auto;" /&gt;
-
+good wikipedia article: https://en.wikipedia.org/wiki/Tukey%27s_range_test]
 ---
 # Applying Tukey's test
 
@@ -665,11 +668,6 @@ TukeyHSD(aov(egg_length ~ host_species, cuckoo.dat))
 ## Wren-Robin                 -1.44500000 -2.392271433 -0.49772857 0.0003183
 ## Wren-Tree Pipit            -1.96000000 -2.922428738 -0.99757126 0.0000006
 ```
-.footnote[
-image: https://en.wikipedia.org/wiki/John_Tukey
-
-good wikipedia article: https://en.wikipedia.org/wiki/Tukey%27s_range_test
-]
 
 ---
 # A word about anova
@@ -737,6 +735,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -782,17 +806,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
 .forEach(el => {
   el.innerHTML += '<div class="logo"></div>';
 });
-</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
 </script>
 
 <script>

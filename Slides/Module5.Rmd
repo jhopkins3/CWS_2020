@@ -324,7 +324,7 @@ summary(monet.mod)
 ]
 
 .pull-right[
-```{r, echo=F, out.width="85%", fig.align="right"}
+```{r, echo=F, out.width="75%", fig.align="right"}
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Claude_Monet_-_Champ_de_bl%C3%A9.jpg/1119px-Claude_Monet_-_Champ_de_bl%C3%A9.jpg")
 ```
 ]
@@ -543,15 +543,14 @@ Post (aka post-hoc) tests look at pairwise comparisons and attempt to control fo
 
 The Tukey-test uses the t-statistic (mean/SE) but the p-value controls for the fact that you are making comparisons. It controls for 5% false positives for all tests, instead of per-test.
 
-```{r echo=F, fig.align="right"}
+```{r, echo=FALSE, fig.align="right", out.width= "30%"}
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/en/e/e9/John_Tukey.jpg")
 ```
-.footnote[
-image: https://en.wikipedia.org/wiki/John_Tukey
 
-good wikipedia article: https://en.wikipedia.org/wiki/Tukey%27s_range_test
-]
 
+.footnote[image: https://en.wikipedia.org/wiki/John_Tukey
+
+good wikipedia article: https://en.wikipedia.org/wiki/Tukey%27s_range_test]
 ---
 # Applying Tukey's test
 
