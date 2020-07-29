@@ -304,7 +304,7 @@ Any guesses which are most highly associated with total sleep?
 ---
 # Model 1: Lifespan
 
-OK, `LifeSpan` is significant
+OK, `LifeSpan` is marginally significant
 ```{r, echo=F}
 sleep.dat <- read.csv(file="../Data/MammalSleep.csv")
 ```
@@ -370,7 +370,7 @@ anova(mod2, mod3)
 
 Model 2 and 3 are not significantly different.
 
-But this won't let us compare more than two models!
+But this won't let us compare more than two models or models that aren't nested!
 ---
 # Adjusted $R^2$
 
@@ -435,8 +435,8 @@ knitr::include_graphics("https://miro.medium.com/max/620/1*feFntGUIiob7MwUX62jdC
 
 1. Break up data into **training** and **test** datasets
   * typically 2/3 and 1/3 of dataset
-2. Fit the model to the training data
-3. Use the fits to predict the test data, calculate RMSE
+2. Fit the models to the training data
+3. Use the fits to predict the test data, calculating Root Mean Square Error (RMSE)
 
 
 ---
@@ -503,7 +503,7 @@ class: inverse, middle
 ## LOOCV
 
 ---
-# Akaike's Information Criterion
+# Akaike's Information Criterion (AIC)
 
 If models are not nested or you need to compare more than two models pairwise comparisons won't work
 
@@ -521,7 +521,7 @@ knitr::include_graphics("https://onlinelibrary.wiley.com/cms/asset/4b1fcb4c-6d4f
 ```
 ]
  
-.footnote[Cavanauh, J.E. and Neath, A.A. (2019) The Akaike information criterion: Background, derivation, properties, application, interpretation, and refinements. Wiley Interdisciplinary Reviews.]
+.footnote[[Cavanauh, J.E. and Neath, A.A. (2019) The Akaike information criterion: Background, derivation, properties, application, interpretation, and refinements. Wiley Interdisciplinary Reviews](https://onlinelibrary.wiley.com/doi/full/10.1002/wics.1460)]
 
 ---
 # The AIC 
@@ -537,12 +537,12 @@ These criterion tradeoff the model **fit** (the likelihood of the model $\ell(\h
 
 * Larger differences in AIC (AICc), called $\Delta$AIC, are stronger support for the best model.
 
-* Rules of thumb for support of suboptimal model
+* Rules of thumb for support of suboptimal model using $\Delta$AIC
   * 0- 7: plausible
   * 7-14: equivocal
   * $>$ 14: impossible
   
-.footnote[Burnham, Anderson, Huyvaert (2011) Behavioral Ecology and Sociobiology]
+.footnote[[Burnham, Anderson, Huyvaert (2011) Behavioral Ecology and Sociobiology](https://link.springer.com/article/10.1007/s00265-010-1029-6)]
 ---
 
 # Example
@@ -650,8 +650,8 @@ Other procedures sometimes used for exploratory analyses
 # Resources
 
 * Ken Burham & David Anderson, Model Selection and Multimodel Inference. A classic book
-* Mark Brewer (Model selection and the cult of AIC) [https://www.youtube.com/watch?v=lEDpZmq5rBw]
+* Mark Brewer talk: [Model selection and the cult of AIC](https://www.youtube.com/watch?v=lEDpZmq5rBw)
 * R package `caret` for cross-validation (**C**lassification **A**nd **RE**gression **T**raining)
 * R package `MuMIn` for model averaging
-* Some issues with using model averaging for explanatory modeling are discussed in Cade, B. S. (2015). Model averaging and muddled multimodel inferences. Ecology, 96(9), 2370-2382.
+* Some issues with using model averaging for explanatory modeling are discussed in [Cade, B. S. (2015). Model averaging and muddled multimodel inferences. Ecology, 96(9), 2370-2382.](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/14-1639.1)
 * Strengths and weaknesses of $R^2_{adj}$: https://davegiles.blogspot.com/2013/08/unbiased-model-selection-using-adjusted.html
