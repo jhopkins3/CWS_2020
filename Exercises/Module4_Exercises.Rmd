@@ -28,6 +28,7 @@ x <- 0:10
 y <- rep(5, 10)
 z <- sample(0:10, size=10, replace=TRUE) 
 
+#code here
 mean(x)
 sd(x)
 
@@ -49,7 +50,7 @@ Rerun the analysis a couple of times do the estimates from `z` change or stay th
 
 ## Calculating z-scores, and p-values 
 
-The example in class on a sample of 80 baby weights in the United States found a mean of $\bar{x}=3370$ with standard deviation of  $\sigma=573$. Calculate the 95% confidence interval for this estimate.
+The example in class on a sample of 80 baby weights in the United States found a mean of $\bar{x}=3370$ with standard deviation of $\sigma=573$. Calculate the 95% confidence interval for this estimate.
 
 ```{r}
 #code here

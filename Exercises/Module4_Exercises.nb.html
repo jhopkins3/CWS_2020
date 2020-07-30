@@ -1478,13 +1478,13 @@ window.initializeCodeFolding = function(show) {
   var currentIndex = 1;
 
   // select all R code blocks
-  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia');
+  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia, pre.foldable');
   rCodeBlocks.each(function() {
 
     // create a collapsable div to wrap the code in
     var div = $('<div class="collapse r-code-collapse"></div>');
-    if (show || $(this)[0].classList.contains('fold-show'))
-      div.addClass('in');
+    show = (show || $(this).hasClass('fold-show')) && !$(this).hasClass('fold-hide');
+    if (show) div.addClass('in');
     var id = 'rcode-643E0F36' + currentIndex++;
     div.attr('id', id);
     $(this).before(div);
@@ -1751,121 +1751,190 @@ summary {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnZ3Bsb3QyKSAjbG9hZCBnZ3Bsb3RcbmxpYnJhcnkoZ2d0aGVtZXMpICNsb2FkIHRoZW1lcyBwYWNrYWdlIGZvciBnZ3Bsb3RcbnRoZW1lX3NldCh0aGVtZV90dWZ0ZSgpKSAjIGEgdGhlbWUgSSBsaWtlLlxuXG4jc2V0IHNvbWUgb3B0aW9ucyB0aGF0IEkgbGlrZVxudGhlbWVfdXBkYXRlKHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoaGp1c3QgPSAwLjUpLCBcbiAgICAgICAgICAgICBheGlzLmxpbmUueCA9IGVsZW1lbnRfbGluZShjb2xvcj1cImJsYWNrXCIsIHNpemUgPSAxKSxcbiAgICAgICAgICAgICBheGlzLmxpbmUueSA9IGVsZW1lbnRfbGluZShjb2xvcj1cImJsYWNrXCIsIHNpemUgPSAxKSxcbiAgICAgICAgICAgICB0ZXh0PWVsZW1lbnRfdGV4dChzaXplPTIwKSxcbiAgICAgICAgICAgICBheGlzLnRleHQ9ZWxlbWVudF90ZXh0KHNpemU9MTUpKSAjY2VudGVyIGFsbCB0aXRsZXMgYW5kIGFuZCBheGlzIGxpbmVzXG5gYGAifQ== -->
-<pre class="r"><code>library(ggplot2) #load ggplot
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubGlicmFyeShnZ3Bsb3QyKSAjbG9hZCBnZ3Bsb3RcbmxpYnJhcnkoZ2d0aGVtZXMpICNsb2FkIHRoZW1lcyBwYWNrYWdlIGZvciBnZ3Bsb3RcbnRoZW1lX3NldCh0aGVtZV90dWZ0ZSgpKSAjIGEgdGhlbWUgSSBsaWtlLlxuXG4jc2V0IHNvbWUgb3B0aW9ucyB0aGF0IEkgbGlrZVxudGhlbWVfdXBkYXRlKHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoaGp1c3QgPSAwLjUpLCBcbiAgICAgICAgICAgICBheGlzLmxpbmUueCA9IGVsZW1lbnRfbGluZShjb2xvcj1cXGJsYWNrXFwsIHNpemUgPSAxKSxcbiAgICAgICAgICAgICBheGlzLmxpbmUueSA9IGVsZW1lbnRfbGluZShjb2xvcj1cXGJsYWNrXFwsIHNpemUgPSAxKSxcbiAgICAgICAgICAgICB0ZXh0PWVsZW1lbnRfdGV4dChzaXplPTIwKSxcbiAgICAgICAgICAgICBheGlzLnRleHQ9ZWxlbWVudF90ZXh0KHNpemU9MTUpKSAjY2VudGVyIGFsbCB0aXRsZXMgYW5kIGFuZCBheGlzIGxpbmVzXG5gYGBcbmBgYCJ9 -->
+<pre class="r"><code>```r
+library(ggplot2) #load ggplot
 library(ggthemes) #load themes package for ggplot
 theme_set(theme_tufte()) # a theme I like.
 
 #set some options that I like
 theme_update(plot.title = element_text(hjust = 0.5), 
-             axis.line.x = element_line(color=&quot;black&quot;, size = 1),
-             axis.line.y = element_line(color=&quot;black&quot;, size = 1),
+             axis.line.x = element_line(color=\black\, size = 1),
+             axis.line.y = element_line(color=\black\, size = 1),
              text=element_text(size=20),
              axis.text=element_text(size=15)) #center all titles and and axis lines</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<table>
-<tbody>
-<tr class="odd">
-<td># Exercise 4A #</td>
-</tr>
-</tbody>
-</table>
-<div id="estimating-means-and-standard-deviations" class="section level2">
-<h2>Estimating means and standard deviations</h2>
-<p>Estimate the mean (<code>mean()</code>) and standard deviation (<code>sd()</code>) for the following data vectors:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSAwOjEwXG55IDwtIHJlcCg1LCAxMClcbnogPC0gc2FtcGxlKDA6MTAsIHNpemU9MTAsIHJlcGxhY2U9VFJVRSkgXG5cbm1lYW4oeClcbmBgYCJ9 -->
-<pre class="r"><code>x &lt;- 0:10
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+---------------
+# Exercise 4A #
+---------------
+
+## Estimating means and standard deviations
+
+Estimate the mean (`mean()`) and standard deviation (`sd()`) for the following data vectors:
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxueCA8LSAwOjEwXG55IDwtIHJlcCg1LCAxMClcbnogPC0gc2FtcGxlKDA6MTAsIHNpemU9MTAsIHJlcGxhY2U9VFJVRSkgXG5cbm1lYW4oeClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+x &lt;- 0:10
 y &lt;- rep(5, 10)
 z &lt;- sample(0:10, size=10, replace=TRUE) 
 
 mean(x)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDVcbiJ9 -->
-<pre><code>[1] 5</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2QoeClcbmBgYCJ9 -->
-<pre class="r"><code>sd(x)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMuMzE2NjI1XG4ifQ== -->
-<pre><code>[1] 3.316625</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbih5KVxuYGBgIn0= -->
-<pre class="r"><code>mean(y)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDVcbiJ9 -->
-<pre><code>[1] 5</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2QoeSlcbmBgYCJ9 -->
-<pre class="r"><code>sd(y)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDBcbiJ9 -->
-<pre><code>[1] 0</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbih6KVxuYGBgIn0= -->
-<pre class="r"><code>mean(z)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDUuOVxuIn0= -->
-<pre><code>[1] 5.9</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2QoeilcbmBgYCJ9 -->
-<pre class="r"><code>sd(z)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMuNTczMDQ3XG4ifQ== -->
-<pre><code>[1] 3.573047</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Rerun the analysis a couple of times do the estimates from <code>z</code> change or stay the same? Does this make sense?</p>
-<div id="the-mean-and-standard-deviation-of-z-changes-a-bit-each-time-it-is-run-due-to-the-random-nature-of-the-sample." class="section level3">
-<h3>The mean and standard deviation of <code>z</code> changes a bit each time it is run due to the random nature of the sample.</h3>
-<table>
-<tbody>
-<tr class="odd">
-<td># Exercise 4B #</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="calculating-z-scores-and-p-values" class="section level2">
-<h2>Calculating z-scores, and p-values</h2>
-<p>The example in class on a sample of 80 baby weights in the United States found a mean of <span class="math inline">\(\bar{x}=3370\)</span> with variance of <span class="math inline">\(\sigma=573\)</span>. Calculate the 95% confidence interval for this estimate.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NvZGUgaGVyZVxuc2UgPC0gNTczL3NxcnQoODApXG54YmFyIDwtIDMzNzBcblxueGJhciArIDEuOTYqYygtMSwxKSpzZVxuYGBgIn0= -->
-<pre class="r"><code>#code here
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdIDVcbiJ9 --&gt;
+</code></pre>
+<p>[1] 5</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc2QoeClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+sd(x)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMuMzE2NjI1XG4ifQ== --&gt;
+</code></pre>
+<p>[1] 3.316625</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubWVhbih5KVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+mean(y)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdIDVcbiJ9 --&gt;
+</code></pre>
+<p>[1] 5</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc2QoeSlcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+sd(y)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdIDBcbiJ9 --&gt;
+</code></pre>
+<p>[1] 0</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubWVhbih6KVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+mean(z)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdIDUuOVxuIn0= --&gt;
+</code></pre>
+<p>[1] 5.9</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc2QoeilcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+sd(z)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMuNTczMDQ3XG4ifQ== --&gt;
+</code></pre>
+<p>[1] 3.573047</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+Rerun the analysis a couple of times do the estimates from `z` change or stay the same? Does this make sense?
+
+### The mean and standard deviation of `z` changes a bit each time it is run due to the random nature of the sample.
+
+---------------
+# Exercise 4B #
+---------------
+
+## Calculating z-scores, and p-values 
+
+The example in class on a sample of 80 baby weights in the United States found a mean of $\bar{x}=3370$ with standard deviation of $\sigma=573$. Calculate the 95% confidence interval for this estimate.
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NvZGUgaGVyZVxuc2UgPC0gNTczL3NxcnQoODApXG54YmFyIDwtIDMzNzBcblxueGJhciArIDEuOTYqYygtMSwxKSpzZVxuIyBvclxueGJhciArIHFub3JtKDAuMDI1KSpzZVxuYGBgIn0= --&gt;
+
+```r
+#code here
 se &lt;- 573/sqrt(80)
 xbar &lt;- 3370
 
-xbar + 1.96*c(-1,1)*se</code></pre>
+xbar + 1.96*c(-1,1)*se
+# or
+xbar + qnorm(0.025)*se</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMyNDQuNDM2IDM0OTUuNTY0XG4ifQ== -->
-<pre><code>[1] 3244.436 3495.564</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>In this example the population mean was <span class="math inline">\(\mu=3339\)</span>. Repeat the z-test conducted in class but let the sample size be 160 instead of 80. Does this change the p-value? What if the sample size had been 8000 instead of 80? Would your conclusions about whether this sampled population is the same as the general population change?</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NvZGUgaGVyZVxueiA8LSAoeGJhciAtIDMzMzkpLyg1NzMvc3FydCgxNjApKVxuMipwbm9ybShxPXosIGxvd2VyLnRhaWw9RilcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NvZGUgaGVyZVxueiA8LSAoeGJhciAtIDMzMzkpLyg1NzMvc3FydCgxNjApKVxuMipwbm9ybShxPXosIGxvd2VyLnRhaWw9RilcblxueiA8LSAoeGJhciAtIDMzMzkpLyg1NzMvc3FydCg4MDAwKSlcbjIqcG5vcm0ocT16LCBsb3dlci50YWlsPUYpXG5gYGAifQ== -->
 <pre class="r"><code>#code here
 z &lt;- (xbar - 3339)/(573/sqrt(160))
+2*pnorm(q=z, lower.tail=F)
+
+z &lt;- (xbar - 3339)/(573/sqrt(8000))
 2*pnorm(q=z, lower.tail=F)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNDkzNzY1M1xuIn0= -->
-<pre><code>[1] 0.4937653</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueiA8LSAoeGJhciAtIDMzMzkpLyg1NzMvc3FydCg4MDAwKSlcbjIqcG5vcm0ocT16LCBsb3dlci50YWlsPUYpXG5gYGAifQ== -->
-<pre class="r"><code>z &lt;- (xbar - 3339)/(573/sqrt(8000))
-2*pnorm(q=z, lower.tail=F)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEuMzA1MjAxZS0wNlxuIn0= -->
-<pre><code>[1] 1.305201e-06</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <table>
@@ -1875,28 +1944,20 @@ z &lt;- (xbar - 3339)/(573/sqrt(160))
 </tr>
 </tbody>
 </table>
-</div>
 <div id="calculating-wald-confidence-intervals" class="section level2">
 <h2>Calculating Wald confidence intervals</h2>
 <p>Update the 95% confidence interval you calculated above to account for uncertainty in <span class="math inline">\(\sigma\)</span> with the t-distribution.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NvZGUgaGVyZVxuc2UgPC0gNTczL3NxcnQoODApXG54YmFyIDwtIDMzNzBcblxueGJhciArIHF0KHA9MC45NzUsIGRmPTgwLTEpKnNlXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NvZGUgaGVyZVxuc2UgPC0gNTczL3NxcnQoODApXG54YmFyIDwtIDMzNzBcblxueGJhciArIHF0KHA9MC45NzUsIGRmPTgwLTEpKnNlXG54YmFyICsgcXQocD0wLjAyNSwgZGY9ODAtMSkqc2VcblxuYGBgIn0= -->
 <pre class="r"><code>#code here
 se &lt;- 573/sqrt(80)
 xbar &lt;- 3370
 
-xbar + qt(p=0.975, df=80-1)*se</code></pre>
+xbar + qt(p=0.975, df=80-1)*se
+xbar + qt(p=0.025, df=80-1)*se
+</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDM0OTcuNTE1XG4ifQ== -->
-<pre><code>[1] 3497.515</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueGJhciArIHF0KHA9MC4wMjUsIGRmPTgwLTEpKnNlXG5gYGAifQ== -->
-<pre class="r"><code>xbar + qt(p=0.025, df=80-1)*se</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMyNDIuNDg1XG4ifQ== -->
-<pre><code>[1] 3242.485</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="this-interval-is-slightly-wider-than-the-z-interval-but-not-much." class="section level3">
@@ -1915,29 +1976,17 @@ xbar + qt(p=0.975, df=80-1)*se</code></pre>
 <p>Repeat the in-class example by reading in the csv file <code>BeerGlassShape.csv</code> and conduding a t-test using the <code>response ~ predictor</code> formula.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudC50ZXN0KGRyaW5raW5nTWludXRlcyB+IGdsYXNzU2hhcGUsIGRhdGE9Z2xhc3MuZGF0KVxuXG5gYGAifQ== -->
-<pre class="r"><code>t.test(drinkingMinutes ~ glassShape, data=glass.dat)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NvZGUgaGVyZVxuZ2xhc3MuZGF0IDwtIHJlYWQuY3N2KGZpbGU9XCIuLi9EYXRhL0JlZXJHbGFzc1NoYXBlLmNzdlwiKVxudC50ZXN0KGRyaW5raW5nTWludXRlcyB+IGdsYXNzU2hhcGUsIGRhdGE9Z2xhc3MuZGF0KVxuYGBgIn0= -->
+<pre class="r"><code>#code here
+glass.dat &lt;- read.csv(file=&quot;../Data/BeerGlassShape.csv&quot;)
+t.test(drinkingMinutes ~ glassShape, data=glass.dat)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdlbGNoIFR3byBTYW1wbGUgdC10ZXN0XG5cbmRhdGE6ICBkcmlua2luZ01pbnV0ZXMgYnkgZ2xhc3NTaGFwZVxudCA9IC0zLjUxMTEsIGRmID0gMTMuNjM3LCBwLXZhbHVlID0gMC4wMDM1ODVcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgZGlmZmVyZW5jZSBpbiBtZWFucyBpcyBub3QgZXF1YWwgdG8gMFxuOTUgcGVyY2VudCBjb25maWRlbmNlIGludGVydmFsOlxuIC0xMS44MDIxODYgIC0yLjgzNzE0OFxuc2FtcGxlIGVzdGltYXRlczpcbiAgbWVhbiBpbiBncm91cCBjdXJ2ZWQgbWVhbiBpbiBncm91cCBzdHJhaWdodCBcbiAgICAgICAgICAgICAgNy41OTMzMzMgICAgICAgICAgICAgIDE0LjkxMzAwMCBcbiJ9 -->
-<pre><code>
-    Welch Two Sample t-test
-
-data:  drinkingMinutes by glassShape
-t = -3.5111, df = 13.637, p-value = 0.003585
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- -11.802186  -2.837148
-sample estimates:
-  mean in group curved mean in group straight 
-              7.593333              14.913000 </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAnTW9kdWxlIDQgZXhlcmNpc2VzJwpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeShnZ3Bsb3QyKSAjbG9hZCBnZ3Bsb3QKbGlicmFyeShnZ3RoZW1lcykgI2xvYWQgdGhlbWVzIHBhY2thZ2UgZm9yIGdncGxvdAp0aGVtZV9zZXQodGhlbWVfdHVmdGUoKSkgIyBhIHRoZW1lIEkgbGlrZS4KCiNzZXQgc29tZSBvcHRpb25zIHRoYXQgSSBsaWtlCnRoZW1lX3VwZGF0ZShwbG90LnRpdGxlID0gZWxlbWVudF90ZXh0KGhqdXN0ID0gMC41KSwgCiAgICAgICAgICAgICBheGlzLmxpbmUueCA9IGVsZW1lbnRfbGluZShjb2xvcj0iYmxhY2siLCBzaXplID0gMSksCiAgICAgICAgICAgICBheGlzLmxpbmUueSA9IGVsZW1lbnRfbGluZShjb2xvcj0iYmxhY2siLCBzaXplID0gMSksCiAgICAgICAgICAgICB0ZXh0PWVsZW1lbnRfdGV4dChzaXplPTIwKSwKICAgICAgICAgICAgIGF4aXMudGV4dD1lbGVtZW50X3RleHQoc2l6ZT0xNSkpICNjZW50ZXIgYWxsIHRpdGxlcyBhbmQgYW5kIGF4aXMgbGluZXMKYGBgCgotLS0tLS0tLS0tLS0tLS0KIyBFeGVyY2lzZSA0QSAjCi0tLS0tLS0tLS0tLS0tLQoKIyMgRXN0aW1hdGluZyBtZWFucyBhbmQgc3RhbmRhcmQgZGV2aWF0aW9ucwoKRXN0aW1hdGUgdGhlIG1lYW4gKGBtZWFuKClgKSBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIChgc2QoKWApIGZvciB0aGUgZm9sbG93aW5nIGRhdGEgdmVjdG9yczoKYGBge3J9CnggPC0gMDoxMAp5IDwtIHJlcCg1LCAxMCkKeiA8LSBzYW1wbGUoMDoxMCwgc2l6ZT0xMCwgcmVwbGFjZT1UUlVFKSAKCm1lYW4oeCkKc2QoeCkKCm1lYW4oeSkKc2QoeSkKCm1lYW4oeikKc2QoeikKCmBgYAoKUmVydW4gdGhlIGFuYWx5c2lzIGEgY291cGxlIG9mIHRpbWVzIGRvIHRoZSBlc3RpbWF0ZXMgZnJvbSBgemAgY2hhbmdlIG9yIHN0YXkgdGhlIHNhbWU/IERvZXMgdGhpcyBtYWtlIHNlbnNlPwoKIyMjIFRoZSBtZWFuIGFuZCBzdGFuZGFyZCBkZXZpYXRpb24gb2YgYHpgIGNoYW5nZXMgYSBiaXQgZWFjaCB0aW1lIGl0IGlzIHJ1biBkdWUgdG8gdGhlIHJhbmRvbSBuYXR1cmUgb2YgdGhlIHNhbXBsZS4KCi0tLS0tLS0tLS0tLS0tLQojIEV4ZXJjaXNlIDRCICMKLS0tLS0tLS0tLS0tLS0tCgojIyBDYWxjdWxhdGluZyB6LXNjb3JlcywgYW5kIHAtdmFsdWVzIAoKVGhlIGV4YW1wbGUgaW4gY2xhc3Mgb24gYSBzYW1wbGUgb2YgODAgYmFieSB3ZWlnaHRzIGluIHRoZSBVbml0ZWQgU3RhdGVzIGZvdW5kIGEgbWVhbiBvZiAkXGJhcnt4fT0zMzcwJCB3aXRoIHZhcmlhbmNlIG9mICAkXHNpZ21hPTU3MyQuIENhbGN1bGF0ZSB0aGUgOTUlIGNvbmZpZGVuY2UgaW50ZXJ2YWwgZm9yIHRoaXMgZXN0aW1hdGUuCgpgYGB7cn0KI2NvZGUgaGVyZQpzZSA8LSA1NzMvc3FydCg4MCkKeGJhciA8LSAzMzcwCgp4YmFyICsgMS45NipjKC0xLDEpKnNlCmBgYAoKSW4gdGhpcyBleGFtcGxlIHRoZSBwb3B1bGF0aW9uIG1lYW4gd2FzICRcbXU9MzMzOSQuICBSZXBlYXQgdGhlIHotdGVzdCBjb25kdWN0ZWQgaW4gY2xhc3MgYnV0IGxldCB0aGUgc2FtcGxlIHNpemUgYmUgMTYwIGluc3RlYWQgb2YgODAuIERvZXMgdGhpcyBjaGFuZ2UgdGhlIHAtdmFsdWU/IFdoYXQgaWYgdGhlIHNhbXBsZSBzaXplIGhhZCBiZWVuIDgwMDAgaW5zdGVhZCBvZiA4MD8gV291bGQgeW91ciBjb25jbHVzaW9ucyBhYm91dCB3aGV0aGVyIHRoaXMgc2FtcGxlZCBwb3B1bGF0aW9uIGlzIHRoZSBzYW1lIGFzIHRoZSBnZW5lcmFsIHBvcHVsYXRpb24gY2hhbmdlPwoKYGBge3J9CiNjb2RlIGhlcmUKeiA8LSAoeGJhciAtIDMzMzkpLyg1NzMvc3FydCgxNjApKQoyKnBub3JtKHE9eiwgbG93ZXIudGFpbD1GKQoKeiA8LSAoeGJhciAtIDMzMzkpLyg1NzMvc3FydCg4MDAwKSkKMipwbm9ybShxPXosIGxvd2VyLnRhaWw9RikKYGBgCgoKLS0tLS0tLS0tLS0tLS0tCiMgRXhlcmNpc2UgNEMgIwotLS0tLS0tLS0tLS0tLS0KCiMjIENhbGN1bGF0aW5nIFdhbGQgY29uZmlkZW5jZSBpbnRlcnZhbHMgCgpVcGRhdGUgdGhlIDk1JSBjb25maWRlbmNlIGludGVydmFsIHlvdSBjYWxjdWxhdGVkIGFib3ZlIHRvIGFjY291bnQgZm9yIHVuY2VydGFpbnR5IGluICRcc2lnbWEkIHdpdGggdGhlIHQtZGlzdHJpYnV0aW9uLgoKYGBge3J9CiNjb2RlIGhlcmUKc2UgPC0gNTczL3NxcnQoODApCnhiYXIgPC0gMzM3MAoKeGJhciArIHF0KHA9MC45NzUsIGRmPTgwLTEpKnNlCnhiYXIgKyBxdChwPTAuMDI1LCBkZj04MC0xKSpzZQoKYGBgCiMjIyBUaGlzIGludGVydmFsIGlzIHNsaWdodGx5IHdpZGVyIHRoYW4gdGhlIHotaW50ZXJ2YWwsIGJ1dCBub3QgbXVjaC4KCi0tLS0tLS0tLS0tLS0tLQojIEV4ZXJjaXNlIDREICMKLS0tLS0tLS0tLS0tLS0tCgojIyBUd28tc2FtcGxlIHQtdGVzdAoKUmVwZWF0IHRoZSBpbi1jbGFzcyBleGFtcGxlIGJ5IHJlYWRpbmcgaW4gdGhlIGNzdiBmaWxlIGBCZWVyR2xhc3NTaGFwZS5jc3ZgIGFuZCBjb25kdWRpbmcgYSB0LXRlc3QgdXNpbmcgdGhlIGByZXNwb25zZSB+IHByZWRpY3RvcmAgZm9ybXVsYS4KCmBgYHtyfQojY29kZSBoZXJlCmdsYXNzLmRhdCA8LSByZWFkLmNzdihmaWxlPSIuLi9EYXRhL0JlZXJHbGFzc1NoYXBlLmNzdiIpCnQudGVzdChkcmlua2luZ01pbnV0ZXMgfiBnbGFzc1NoYXBlLCBkYXRhPWdsYXNzLmRhdCkKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogJ01vZHVsZSA0IGV4ZXJjaXNlcycNCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCmBgYHtyfQ0KbGlicmFyeShnZ3Bsb3QyKSAjbG9hZCBnZ3Bsb3QNCmxpYnJhcnkoZ2d0aGVtZXMpICNsb2FkIHRoZW1lcyBwYWNrYWdlIGZvciBnZ3Bsb3QNCnRoZW1lX3NldCh0aGVtZV90dWZ0ZSgpKSAjIGEgdGhlbWUgSSBsaWtlLg0KDQojc2V0IHNvbWUgb3B0aW9ucyB0aGF0IEkgbGlrZQ0KdGhlbWVfdXBkYXRlKHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoaGp1c3QgPSAwLjUpLCANCiAgICAgICAgICAgICBheGlzLmxpbmUueCA9IGVsZW1lbnRfbGluZShjb2xvcj0iYmxhY2siLCBzaXplID0gMSksDQogICAgICAgICAgICAgYXhpcy5saW5lLnkgPSBlbGVtZW50X2xpbmUoY29sb3I9ImJsYWNrIiwgc2l6ZSA9IDEpLA0KICAgICAgICAgICAgIHRleHQ9ZWxlbWVudF90ZXh0KHNpemU9MjApLA0KICAgICAgICAgICAgIGF4aXMudGV4dD1lbGVtZW50X3RleHQoc2l6ZT0xNSkpICNjZW50ZXIgYWxsIHRpdGxlcyBhbmQgYW5kIGF4aXMgbGluZXMNCmBgYA0KDQotLS0tLS0tLS0tLS0tLS0NCiMgRXhlcmNpc2UgNEEgIw0KLS0tLS0tLS0tLS0tLS0tDQoNCiMjIEVzdGltYXRpbmcgbWVhbnMgYW5kIHN0YW5kYXJkIGRldmlhdGlvbnMNCg0KRXN0aW1hdGUgdGhlIG1lYW4gKGBtZWFuKClgKSBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIChgc2QoKWApIGZvciB0aGUgZm9sbG93aW5nIGRhdGEgdmVjdG9yczoNCmBgYHtyfQ0KeCA8LSAwOjEwDQp5IDwtIHJlcCg1LCAxMCkNCnogPC0gc2FtcGxlKDA6MTAsIHNpemU9MTAsIHJlcGxhY2U9VFJVRSkgDQoNCiNjb2RlIGhlcmUNCm1lYW4oeCkNCnNkKHgpDQoNCm1lYW4oeSkNCnNkKHkpDQoNCm1lYW4oeikNCnNkKHopDQoNCmBgYA0KDQpSZXJ1biB0aGUgYW5hbHlzaXMgYSBjb3VwbGUgb2YgdGltZXMgZG8gdGhlIGVzdGltYXRlcyBmcm9tIGB6YCBjaGFuZ2Ugb3Igc3RheSB0aGUgc2FtZT8gRG9lcyB0aGlzIG1ha2Ugc2Vuc2U/DQoNCiMjIyBUaGUgbWVhbiBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGB6YCBjaGFuZ2VzIGEgYml0IGVhY2ggdGltZSBpdCBpcyBydW4gZHVlIHRvIHRoZSByYW5kb20gbmF0dXJlIG9mIHRoZSBzYW1wbGUuDQoNCi0tLS0tLS0tLS0tLS0tLQ0KIyBFeGVyY2lzZSA0QiAjDQotLS0tLS0tLS0tLS0tLS0NCg0KIyMgQ2FsY3VsYXRpbmcgei1zY29yZXMsIGFuZCBwLXZhbHVlcyANCg0KVGhlIGV4YW1wbGUgaW4gY2xhc3Mgb24gYSBzYW1wbGUgb2YgODAgYmFieSB3ZWlnaHRzIGluIHRoZSBVbml0ZWQgU3RhdGVzIGZvdW5kIGEgbWVhbiBvZiAkXGJhcnt4fT0zMzcwJCB3aXRoIHN0YW5kYXJkIGRldmlhdGlvbiBvZiAkXHNpZ21hPTU3MyQuIENhbGN1bGF0ZSB0aGUgOTUlIGNvbmZpZGVuY2UgaW50ZXJ2YWwgZm9yIHRoaXMgZXN0aW1hdGUuDQoNCmBgYHtyfQ0KI2NvZGUgaGVyZQ0Kc2UgPC0gNTczL3NxcnQoODApDQp4YmFyIDwtIDMzNzANCg0KeGJhciArIDEuOTYqYygtMSwxKSpzZQ0KIyBvcg0KeGJhciArIHFub3JtKDAuMDI1KSpzZQ0KYGBgDQoNCkluIHRoaXMgZXhhbXBsZSB0aGUgcG9wdWxhdGlvbiBtZWFuIHdhcyAkXG11PTMzMzkkLiAgUmVwZWF0IHRoZSB6LXRlc3QgY29uZHVjdGVkIGluIGNsYXNzIGJ1dCBsZXQgdGhlIHNhbXBsZSBzaXplIGJlIDE2MCBpbnN0ZWFkIG9mIDgwLiBEb2VzIHRoaXMgY2hhbmdlIHRoZSBwLXZhbHVlPyBXaGF0IGlmIHRoZSBzYW1wbGUgc2l6ZSBoYWQgYmVlbiA4MDAwIGluc3RlYWQgb2YgODA/IFdvdWxkIHlvdXIgY29uY2x1c2lvbnMgYWJvdXQgd2hldGhlciB0aGlzIHNhbXBsZWQgcG9wdWxhdGlvbiBpcyB0aGUgc2FtZSBhcyB0aGUgZ2VuZXJhbCBwb3B1bGF0aW9uIGNoYW5nZT8NCg0KYGBge3J9DQojY29kZSBoZXJlDQp6IDwtICh4YmFyIC0gMzMzOSkvKDU3My9zcXJ0KDE2MCkpDQoyKnBub3JtKHE9eiwgbG93ZXIudGFpbD1GKQ0KDQp6IDwtICh4YmFyIC0gMzMzOSkvKDU3My9zcXJ0KDgwMDApKQ0KMipwbm9ybShxPXosIGxvd2VyLnRhaWw9RikNCmBgYA0KDQoNCi0tLS0tLS0tLS0tLS0tLQ0KIyBFeGVyY2lzZSA0QyAjDQotLS0tLS0tLS0tLS0tLS0NCg0KIyMgQ2FsY3VsYXRpbmcgV2FsZCBjb25maWRlbmNlIGludGVydmFscyANCg0KVXBkYXRlIHRoZSA5NSUgY29uZmlkZW5jZSBpbnRlcnZhbCB5b3UgY2FsY3VsYXRlZCBhYm92ZSB0byBhY2NvdW50IGZvciB1bmNlcnRhaW50eSBpbiAkXHNpZ21hJCB3aXRoIHRoZSB0LWRpc3RyaWJ1dGlvbi4NCg0KYGBge3J9DQojY29kZSBoZXJlDQpzZSA8LSA1NzMvc3FydCg4MCkNCnhiYXIgPC0gMzM3MA0KDQp4YmFyICsgcXQocD0wLjk3NSwgZGY9ODAtMSkqc2UNCnhiYXIgKyBxdChwPTAuMDI1LCBkZj04MC0xKSpzZQ0KDQpgYGANCiMjIyBUaGlzIGludGVydmFsIGlzIHNsaWdodGx5IHdpZGVyIHRoYW4gdGhlIHotaW50ZXJ2YWwsIGJ1dCBub3QgbXVjaC4NCg0KLS0tLS0tLS0tLS0tLS0tDQojIEV4ZXJjaXNlIDREICMNCi0tLS0tLS0tLS0tLS0tLQ0KDQojIyBUd28tc2FtcGxlIHQtdGVzdA0KDQpSZXBlYXQgdGhlIGluLWNsYXNzIGV4YW1wbGUgYnkgcmVhZGluZyBpbiB0aGUgY3N2IGZpbGUgYEJlZXJHbGFzc1NoYXBlLmNzdmAgYW5kIGNvbmR1ZGluZyBhIHQtdGVzdCB1c2luZyB0aGUgYHJlc3BvbnNlIH4gcHJlZGljdG9yYCBmb3JtdWxhLg0KDQpgYGB7cn0NCiNjb2RlIGhlcmUNCmdsYXNzLmRhdCA8LSByZWFkLmNzdihmaWxlPSIuLi9EYXRhL0JlZXJHbGFzc1NoYXBlLmNzdiIpDQp0LnRlc3QoZHJpbmtpbmdNaW51dGVzIH4gZ2xhc3NTaGFwZSwgZGF0YT1nbGFzcy5kYXQpDQpgYGANCg0K</div>
 
 
 

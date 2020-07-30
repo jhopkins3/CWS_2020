@@ -72,18 +72,18 @@ All analyses in this course will be conducted in Rstudio Cloud. You should have 
 &lt;br&gt;
 
 
-Slides: https://troutinthemilk.github.io/CWS_2020/Slides/Module1.html
+Slides: https://gkhimesboor.github.io/CWS_2020/Slides/Module1.html
 
 Exercises and groupwork: https://rstudio.cloud/spaces/73676/project/1350072
 
-Code to reproduce slides: https://github.com/troutinthemilk/CWS_2020/blob/master/Slides/Module1.Rmd
+Code to reproduce slides: https://github.com/gkhimesboor/CWS_2020/blob/master/Slides/Module1.Rmd
 
 ---
 # Assigning values in R
 
-The arrow &lt;- is an assignment operation. 
+The arrow &lt;- is an assignment operation.
 
-The right-hand side is the value you assign
+The right-hand side is the value you assign.
 
 The left-hand side is the variable you assign a value to.
 
@@ -312,7 +312,7 @@ rep(3.14, times=10) #repeat a value
 ---
 class: inverse, middle
 
-# Excercise 1A
+# Exercise 1A
 -------
 ## Variables and vectors
 
@@ -358,8 +358,7 @@ choice.dat[,2] #1 column
 ```
 
 ```
-## [1] yes no  yes no  yes no 
-## Levels: no yes
+## [1] "yes" "no"  "yes" "no"  "yes" "no"
 ```
 
 ```r
@@ -381,8 +380,7 @@ choice.dat$Choice # access columns by name
 ```
 
 ```
-## [1] yes no  yes no  yes no 
-## Levels: no yes
+## [1] "yes" "no"  "yes" "no"  "yes" "no"
 ```
 ]
 
@@ -457,8 +455,6 @@ These operations are often useful for working with data frames.
 ```
 
 ---
-E
----
 # The working directory
 
 R operates from the **working directory**. 
@@ -466,7 +462,7 @@ R operates from the **working directory**.
 If using **RStudio** use navigate to Session -&gt; Set Working Directory -&gt; To Source File Directory. 
 
 
-&lt;img src="../figure/SetwdMenu.png" width="1920" style="display: block; margin: auto;" /&gt;
+&lt;img src="../figure/SetwdMenu.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -517,7 +513,7 @@ str(bass.dat)
 
 ```
 ## 'data.frame':	1710 obs. of  7 variables:
-##  $ gear     : Factor w/ 2 levels "E","T": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ gear     : chr  "E" "E" "E" "E" ...
 ##  $ yearcap  : int  1988 1988 1988 1988 1988 1988 1989 1990 1990 1990 ...
 ##  $ FishID   : int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ YearClass: int  1987 1987 1987 1987 1987 1987 1988 1989 1989 1989 ...
@@ -531,7 +527,7 @@ str(bass.dat)
 ---
 class: inverse, middle
 
-# Excercise 1B
+# Exercise 1B
 ----------------
 ## Reading in data
 
@@ -629,6 +625,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -674,17 +696,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
 .forEach(el => {
   el.innerHTML += '<div class="logo"></div>';
 });
-</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
 </script>
 
 <script>
