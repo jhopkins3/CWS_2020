@@ -85,11 +85,11 @@ All analyses in this course will be conducted in Rstudio Cloud. You should have 
 <br>
 
 
-Slides: https://troutinthemilk.github.io/CWS_2020/Slides/Module1.html
+Slides: https://gkhimesboor.github.io/CWS_2020/Slides/Module1.html
 
 Exercises and groupwork: https://rstudio.cloud/spaces/73676/project/1350072
 
-Code to reproduce slides: https://github.com/troutinthemilk/CWS_2020/blob/master/Slides/Module1.Rmd
+Code to reproduce slides: https://github.com/gkhimesboor/CWS_2020/blob/master/Slides/Module1.Rmd
 
 ---
 # Assigning values in R
