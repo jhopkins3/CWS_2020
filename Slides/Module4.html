@@ -42,11 +42,11 @@ class: inverse
 &lt;br&gt;
 
 
-Slides: https://troutinthemilk.github.io/CWS_2020/Slides/Module4.html
+Slides: https://gkhimesboor.github.io/CWS_2020/Slides/Module4.html
 
 Exercises and groupwork: https://rstudio.cloud/spaces/73676/project/1350115
 
-Code to reproduce slides: https://github.com/troutinthemilk/CWS_2020/blob/master/Slides/Module4.Rmd
+Code to reproduce slides: https://github.com/gkhimesboor/CWS_2020/blob/master/Slides/Module4.Rmd
 
 ---
 # Random variables
@@ -100,10 +100,10 @@ The sum (or mean) of a large number of measurements randomly sampled from a popu
 
 ### `\(\mu\)` is the mean
 
-### `\(\sigma\)` is the standard deviation
+### `\(\sigma\)` is the standard deviation &amp; `\(\sigma^2\)` is the variance
 
 ---
-# The mean and standard deviation
+# The mean and variance
 
 The sample mean `\((\bar{x})\)` is the estimate of the population mean `\((\mu)\)`. 
 
@@ -112,7 +112,7 @@ The sample mean `\((\bar{x})\)` is the estimate of the population mean `\((\mu)\
 
  The sample variance ( `\(s^2\)`) is the estimate of the population variance ( `\(\sigma^2\)`). 
 
-`$$s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( x_i - \mu \right)^2$$`
+`$$s^2 = \frac{1}{n-1} \sum_{i=1}^n \left( x_i - \bar{x} \right)^2$$`
 In R use the `mean` and `var` functions:
 
 ```r
@@ -120,7 +120,7 @@ mean(x)
 ```
 
 ```
-## [1] 1050.005
+## [1] 1050.071
 ```
 
 ```r
@@ -128,7 +128,7 @@ var(x)
 ```
 
 ```
-## [1] 3304.798
+## [1] 3377.339
 ```
 
 ```r
@@ -136,7 +136,7 @@ sd(x) #sqrt(var)
 ```
 
 ```
-## [1] 57.48737
+## [1] 58.11488
 ```
 
 ---
@@ -178,7 +178,7 @@ $$ \sigma_\bar{x} = \frac{s}{\sqrt{n}} $$
 ---
 # Inference with known `\(\sigma\)`
 
-We and estimate the mean horn length of a unicorn, `\(\bar{x}\)`. The standard error determines how much uncertainy is in `\(\bar{x}\)`. How confident can we be that the population horn average (i.e., the true value) is close to our estimate?
+We can estimate the mean horn length of a unicorn, `\(\bar{x}\)`. The standard error determines how much uncertainy is in `\(\bar{x}\)`. How confident can we be that the population horn average (i.e., the true value) is close to our estimate?
 
 A confidence interval gives a range of values that will contain the true value some specified proportion of the time. 
 
@@ -251,11 +251,11 @@ P[Z &gt; 0.48] = ? \\
 
 
 ```r
-pnorm(q=0.48, lower.tail=F)
+2*pnorm(q=0.48, lower.tail=F)
 ```
 
 ```
-## [1] 0.3156137
+## [1] 0.6312274
 ```
 
 ---
@@ -263,7 +263,7 @@ class: inverse, middle
 
 # Exercise 4B
 ------------
-## Calculating confidence intervals, z-scores, and p-values 
+## Calculating z-scores and p-values 
 
 ---
 # Inference when `\(\sigma\)` is unknown
@@ -452,7 +452,7 @@ class: inverse, middle
 
 # Exercise 4D
 --------------
-## One- and two-sample t-tests
+## Two-sample t-tests
 
 ---
 #Summary
@@ -511,6 +511,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -556,17 +582,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
 .forEach(el => {
   el.innerHTML += '<div class="logo"></div>';
 });
-</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
 </script>
 
 <script>
