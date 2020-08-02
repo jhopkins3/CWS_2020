@@ -26,7 +26,7 @@ class: inverse
 
 &lt;br&gt;
 
-0. Navigate rstudio cloud
+0. Navigate RStudio Cloud
 
 1. Understand how data is stored and represented in R
 
@@ -53,7 +53,7 @@ All analyses in this course will be conducted in Rstudio Cloud. You should have 
   
 - "RStudio is an integrated development environment (IDE) for R, a programming language for statistical computing and graphics." This software is for interacting with R. 
 
-  - download here: [https://rstudio.com/](https://rstudio.com/). You must install R first.
+  - download here: [https://rstudio.com/](https://rstudio.com/) (You must install R first.)
 
 - "RStudio Cloud is a hosted version of RStudio in the cloud that makes it easy for professionals, hobbyists, trainers, teachers and students to do, share, teach and learn data science using R."
 
@@ -122,7 +122,7 @@ x
 
 
 ```r
-x + 3
+x+3
 ```
 
 ```
@@ -145,7 +145,7 @@ x/2
 ## [1] -0.505
 ```
 
-but not on characters
+but not on character strings
 
 ```r
 y*2
@@ -162,11 +162,12 @@ Note that errors in R can be difficult to interpret. Cut and paste into **Google
 
 
 Precedence of operations, from highest to lowest:
+
 ^ exponentiation
 
-* / multiplication, division
+\* multiplication, \\ division
 
-+ - addition, subtraction
+\+ addition, - subtraction
 
 However, best practice is to use parenthesis for clarity
 
@@ -243,11 +244,11 @@ these operations go elementwise, recycling values when necessary.
 ---
 # Functions
 
-A function takes one or more arguments and does some stuff to it, then provides some output. 
+A function takes one or more arguments and does some stuff to it, then provides some output. (**x** is the argument in the functions below)  
 
 
 ```r
-length(x) #returns the length of vector
+length(x) #returns number of values in object x (in this case it’s a vector)
 ```
 
 ```
@@ -255,7 +256,7 @@ length(x) #returns the length of vector
 ```
 
 ```r
-print(x) #function to print an object
+print(x) #returns values or characters in object x
 ```
 
 ```
@@ -376,7 +377,7 @@ choice.dat[3:5,1:2] #3 rows and 2 columns
 .pull-right[
 
 ```r
-choice.dat$Choice # access columns by name
+choice.dat$Choice #access columns by name
 ```
 
 ```
@@ -418,7 +419,7 @@ head(subset(choice.dat, Choice == "yes")) #extract Yes answers
  
 These operations are often useful for working with data frames.
  
-`&gt;` `&lt;` `&lt;=` `==` `!=` comparison operators (less than , greater than, less than or equal to, equal to, not equal to)
+`&gt;` `&lt;` `&lt;=` `==` `!=` comparison operators (less than, greater than, less than or equal to, equal to, not equal to)
 
 
 
@@ -481,9 +482,9 @@ The argument file is a string that points to the file you want to load. The abov
 If the data file is in a different location, as it often is if you are working on RStudio on your computer, you tell R the filepath:
 
 ```r
-bass.dat &lt;- read.csv(file="C:\\Users\Jake\BassGrowthOto.csv") #A windows path
+bass.dat &lt;- read.csv(file="C:\\Users\Jake\BassGrowthOto.csv") #A Windows path
 
-bass.dat &lt;- read.csv(file="/Users/Jake/BassGrowthOto.csv") #A mac or linux path
+bass.dat &lt;- read.csv(file="/Users/Jake/BassGrowthOto.csv") #A Mac or Linux path
 ```
 
 ---
@@ -571,13 +572,13 @@ is.character(7)
 
 - R stores numeric and categorical data differently
 
-- a `data.frame` stores multiple vectors of data and can contain both numeric and categorical types
+- A `data.frame` stores multiple vectors of data and can contain both numeric and categorical types
 
   - Our subsequent R analyses will rely on `data.frame` 
 
-- `read.csv` is used to read in csv file, the most common types of input files. These can be exported from excel or libreoffice.
+- `read.csv` is used to read in csv file, the most common types of input files. These can be exported from Excel or Libreoffice.
 
-- Source code for slides and all analyses available for download at: https://github.com/troutinthemilk/CWS_2020
+- Source code for slides and all analyses available for download at: https://github.com/gkhimesboor/CWS_2020
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
