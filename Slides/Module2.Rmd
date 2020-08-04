@@ -56,7 +56,7 @@ theme_update(plot.title = element_text(hjust = 0.5),
 
 Slides: https://gkhimesboor.github.io/CWS_2020/Slides/Module2.html
 
-Exercises and groupwork: https://rstudio.cloud/spaces/73676/project/1350089
+Exercises and groupwork: https://rstudio.cloud/spaces/80870/project/1497681
 
 Code to reproduce slides: https://github.com/gkhimesboor/CWS_2020/blob/master/Slides/Module2.Rmd
 
