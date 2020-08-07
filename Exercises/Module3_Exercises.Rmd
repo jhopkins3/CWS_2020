@@ -134,4 +134,4 @@ for(i in 1:1e6) {
 p.val <- 2*sum(null.vec < obs.val)/length(null.vec)
 print(p.val)
 ```
-### The p-value is smaller than the one I reported in class by about an order of magnitude. This is more accurate than the one run in class. 
+### The p-value is slightly smaller than the one I reported in class. This is more accurate than the one run in class. 
