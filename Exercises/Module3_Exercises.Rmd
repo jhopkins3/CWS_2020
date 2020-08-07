@@ -127,7 +127,7 @@ obs.val <- mean(hotwings.dat$Hotwings[1:14]) - mean(hotwings.dat$Hotwings[15:28]
 print(obs.val)
 
 null.vec <- numeric(1e6) #scientific notation for 10000
-for(i in 1:1e4) {
+for(i in 1:1e6) {
   index       <- sample(1:28, 14, replace=F)
   null.vec[i] <- mean(hotwings.dat$Hotwings[index]) - mean(hotwings.dat$Hotwings[-index])
 }
